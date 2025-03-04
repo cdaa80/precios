@@ -5,13 +5,14 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(name="prices")
 public class Price implements Serializable {
     @Id
@@ -38,4 +39,16 @@ public class Price implements Serializable {
     private Double price;
 
     private String curr;
+
+    public Price(String id, String brandId, LocalDateTime startDate, LocalDateTime endDate, String priceList, String productId, int priority, Double price, String curr) {
+        this.id = id;
+        this.brandId = brandId;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.priceList = priceList;
+        this.productId = productId;
+        this.priority = priority;
+        this.price = price;
+        this.curr = curr;
+    }
 }
